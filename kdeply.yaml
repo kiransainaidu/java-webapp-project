@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kiransai359-deploy
+  labels:
+    app: kiransai359-deploy-lbl
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kiransai359-app
+  template:
+    metadata:
+      labels:
+        app: kiransai359-app
+    spec:
+      containers:
+      - name: kiransai359-container
+        image: kiransai359/pl-javawebappimg
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kiransai359-np-service
+  labels:
+    app: kiransai-app
+spec:
+  selector:
+    app: kiransai359-deploy-lbl
+
+  type: NodePort
+  ports:
+  - nodePort: 31028
+    port: 8080
+    targetPort: 8080
