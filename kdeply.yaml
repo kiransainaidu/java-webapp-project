@@ -5,7 +5,7 @@ metadata:
   labels:
     app: kiransai359-deploy-lbl
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
       app: kiransai359-app
