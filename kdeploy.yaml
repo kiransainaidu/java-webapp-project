@@ -25,7 +25,7 @@ kind: Service
 metadata:
   name: kiransai359-np-service
   labels:
-    app: kiransai-app
+    app: kiransai359-app
 spec:
   selector:
     app: kiransai359-deploy-lbl
